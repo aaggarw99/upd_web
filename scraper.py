@@ -12,6 +12,11 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', seconds=3600)
 def check_website():
+    """
+    Checks if Janie has updated her blog or not...
+    :return:
+    Just prints to console
+    """
     request = urllib.request.Request("https://secondstopeurope.weebly.com/blog")
     response = urllib.request.urlopen(request) # Make the request
     htmlString = response.read()
